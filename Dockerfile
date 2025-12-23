@@ -1,9 +1,9 @@
-FROM openjdk:17
+FROM eclipse-temurin:17-jdk-jammy
 
-COPY target/demo-app.jar  /user/app
+WORKDIR /user/app
 
-WORKDIR /user/app/
+COPY target/demo-app.jar app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-jar", "demo-app.jar" ]
+CMD ["java","-jar","app.jar"]
